@@ -1137,7 +1137,7 @@ function launchInvitation(){
     opened = true;
     gsap.to(envHint,{opacity:0,duration:.35});
     // try video, fallback to direct reveal
-    if(envVideo && envVideo.src){
+    if(envVideo && (envVideo.currentSrc || envVideo.querySelector('source'))){
       const p = envVideo.play();
       if(p && typeof p.catch === 'function') p.catch(()=>{});
       gsap.to(envImage,{opacity:0,duration:.7,ease:'power2.inOut',onComplete:()=>{envImage.style.display='none'}});
