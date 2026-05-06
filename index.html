@@ -461,6 +461,18 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .rsvp-btn:hover::before{transform:translateY(0)}
 .rsvp-date{font-family:var(--sans);font-size:10px;letter-spacing:.45em;text-transform:uppercase;color:var(--gold-deep);margin-top:32px;padding-left:.45em}
 
+/* ============ MUSIC TOGGLE ============ */
+#music-toggle{
+  position:fixed;bottom:28px;right:28px;z-index:9000;
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(47,63,89,.82);border:1px solid rgba(193,167,142,.45);
+  color:var(--gold-soft);cursor:pointer;display:none;
+  align-items:center;justify-content:center;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  transition:background .3s,transform .3s;box-shadow:0 4px 18px rgba(0,0,0,.25);
+}
+#music-toggle:hover{background:rgba(47,63,89,1);transform:scale(1.08)}
+
 /* ============ FOOTER ============ */
 footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
 .footer-inner{text-align:center}
@@ -504,6 +516,22 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
   <div id="env-hint">Toca para abrir</div>
 </div>
 <div id="env-flash" aria-hidden="true"></div>
+<audio id="bg-music" loop preload="auto">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<!-- Botón silenciar -->
+<button id="music-toggle" aria-label="Silenciar música" title="Silenciar / Activar música">
+  <svg id="music-icon-on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+  </svg>
+  <svg id="music-icon-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="display:none">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+    <line x1="23" y1="9" x2="17" y2="15"/>
+    <line x1="17" y1="9" x2="23" y2="15"/>
+  </svg>
+</button>
 
 <!-- PARTICLES -->
 <div id="particles"></div>
@@ -1085,6 +1113,25 @@ function launchInvitation(){
   let opened = false, flashed = false;
   gsap.fromTo(envImage,{opacity:0},{opacity:1,duration:1,ease:'power2.out',delay:.2});
 
+  // ------ MÚSICA ------
+  const bgMusic    = document.getElementById('bg-music');
+  const musicBtn   = document.getElementById('music-toggle');
+  const iconOn     = document.getElementById('music-icon-on');
+  const iconOff    = document.getElementById('music-icon-off');
+
+  function startMusic(){
+    if(!bgMusic) return;
+    bgMusic.volume = 0;
+    bgMusic.play().catch(()=>{});
+    gsap.to(bgMusic,{volume:.45,duration:3,ease:'power1.inOut'});
+    musicBtn.style.display = 'flex';
+  }
+
+  musicBtn && musicBtn.addEventListener('click',()=>{
+    if(bgMusic.paused){ bgMusic.play(); iconOn.style.display=''; iconOff.style.display='none'; }
+    else { bgMusic.pause(); iconOn.style.display='none'; iconOff.style.display=''; }
+  });
+
   function openEnvelope(){
     if(opened) return;
     opened = true;
@@ -1117,6 +1164,7 @@ function launchInvitation(){
       envScreen.style.display='none';
       wrap.style.visibility='visible';
       launchInvitation();
+      startMusic();
       gsap.to(envFlash,{opacity:0,duration:1.2,ease:'power2.inOut',delay:.1,onComplete:()=>{envFlash.style.display='none'}});
     }});
   }
