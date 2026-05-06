@@ -29,10 +29,10 @@
   --accent:#2f3f59;
   --accent-soft:#4a5d7a;
   --accent-deep:#1e2d42;
-  --gold:#c1a78e;
-  --gold-soft:#d4bfa8;
-  --gold-deep:#7f553c;
-  --copper:#7f553c;
+  --gold:#8aa8c8;
+  --gold-soft:#a8c4d8;
+  --gold-deep:#4a6f8f;
+  --copper:#4a6f8f;
   --navy:#2f3f59;
   --ink:#1a1f2e;
   --ink-soft:#4a4a4a;
@@ -93,11 +93,11 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .particle{position:absolute;top:-40px;pointer-events:none;will-change:transform,opacity}
 .particle--pollen{
   width:6px;height:6px;border-radius:50%;
-  background:radial-gradient(circle,#d4bfa8 0%,rgba(212,191,168,.5) 55%,transparent 100%);
+  background:radial-gradient(circle,#a8c4d8 0%,rgba(212,191,168,.5) 55%,transparent 100%);
   box-shadow:0 0 8px rgba(212,191,168,.6),0 0 18px rgba(212,191,168,.3);
   opacity:.8;
 }
-.particle--spark{width:3px;height:3px;border-radius:50%;background:#c1a78e;box-shadow:0 0 6px #c1a78e;opacity:0;}
+.particle--spark{width:3px;height:3px;border-radius:50%;background:#8aa8c8;box-shadow:0 0 6px #8aa8c8;opacity:0;}
 .particle--star{width:12px;height:12px;color:var(--gold);opacity:.6}
 .particle--star--big{width:18px;height:18px;color:var(--gold-soft);opacity:.5}
 .particle--line{
@@ -268,7 +268,7 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .loc-card{background:var(--paper);padding:56px 40px 48px;border:1px solid var(--hair-gold);border-radius:2px;text-align:center;position:relative;box-shadow:0 1px 2px rgba(30,45,66,.06),0 12px 32px -10px rgba(30,45,66,.16),0 40px 90px -40px rgba(30,45,66,.25);transition:transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .7s;transform-style:preserve-3d;will-change:transform;}
 .loc-card::before{content:"";position:absolute;inset:8px;border:1px solid var(--hair-gold);pointer-events:none;opacity:.6;}
 .washi{position:absolute;top:-14px;width:82px;height:24px;opacity:.72;box-shadow:0 2px 8px rgba(0,0,0,.12);}
-.washi--l{left:22px;transform:rotate(-6deg);background:linear-gradient(135deg,#d4bfa8 0%,#c1a78e 50%,#d4bfa8 100%)}
+.washi--l{left:22px;transform:rotate(-6deg);background:linear-gradient(135deg,#a8c4d8 0%,#8aa8c8 50%,#a8c4d8 100%)}
 .washi--r{right:22px;transform:rotate(5deg);background:linear-gradient(135deg,#a8bfd4 0%,var(--navy) 50%,#a8bfd4 100%)}
 .washi::before,.washi::after{content:"";position:absolute;top:0;width:6px;height:100%;background:inherit;}
 .washi::before{left:-3px;clip-path:polygon(100% 0, 100% 100%, 0 50%, 40% 0)}
@@ -387,7 +387,7 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .wheel-item{
   position:absolute;
   --r:min(390px,43vw);
-  --angle:calc(var(--i) * (360deg / 6));
+  --angle:calc(var(--i) * (360deg / 13));
   left:50%;top:50%;
   width:min(280px,28vw);
   height:min(360px,36vw);
@@ -879,7 +879,7 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
         </div>
       </div>
 
-      <div class="dress-avoid" style="margin-top:40px">Por favor evitar blanco y rosa pálido</div>
+      <div class="dress-avoid" style="margin-top:40px">Por favor evitar blanco y beige</div>
     </div>
   </section>
 
@@ -896,12 +896,19 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
       <div class="wheel" id="wheel">
         <span class="wheel-spoke" aria-hidden="true"></span>
         <span class="wheel-spoke wheel-spoke--inner" aria-hidden="true"></span>
-        <div class="wheel-item" style="--i:0"><div class="wheel-item-inner"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/808b0baf-68a6-4f4d-9ca3-54420b2c3171/1778040152898-4.jpeg" alt="Foto 1" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:1"><div class="wheel-item-inner"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/808b0baf-68a6-4f4d-9ca3-54420b2c3171/1778040162785-0.jpeg" alt="Foto 2" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:2"><div class="wheel-item-inner"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/808b0baf-68a6-4f4d-9ca3-54420b2c3171/1778040237637-3.jpeg" alt="Foto 3" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:3"><div class="wheel-item-inner"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/808b0baf-68a6-4f4d-9ca3-54420b2c3171/1778040391353-2.jpeg" alt="Foto 4" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:4"><div class="wheel-item-inner"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/808b0baf-68a6-4f4d-9ca3-54420b2c3171/1778040441464-1.jpeg" alt="Foto 5" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:5"><div class="wheel-item-inner"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/808b0baf-68a6-4f4d-9ca3-54420b2c3171/1778040469949-0.jpeg" alt="Foto 6" loading="lazy"></div></div>
+        <div class="wheel-item" style="--i:0"><div class="wheel-item-inner"><img src="g1.jpg" alt="Foto 1" loading="lazy"></div></div>
+        <div class="wheel-item" style="--i:1"><div class="wheel-item-inner"><img src="g2.jpg" alt="Foto 2" loading="lazy"></div></div>
+        <div class="wheel-item" style="--i:2"><div class="wheel-item-inner"><img src="g3.jpg" alt="Foto 3" loading="lazy"></div></div>
+        <div class="wheel-item" style="--i:3"><div class="wheel-item-inner"><img src="g4.jpg" alt="Foto 4" loading="lazy"></div></div>
+        <div class="wheel-item" style="--i:4"><div class="wheel-item-inner"><img src="g5.jpg" alt="Foto 5" loading="lazy"></div></div>
+        <div class="wheel-item" style="--i:5"><div class="wheel-item-inner"><img src="g6.jpg" alt="Foto 6" loading="lazy"></div></div>
+        <div class="wheel-item" style="--i:6"><div class="wheel-item-inner"><img src="g7.jpg" alt="Foto 7" loading="lazy"></div></div>
+        <div class="wheel-item" style="--i:7"><div class="wheel-item-inner"><img src="g8.jpg" alt="Foto 8" loading="lazy"></div></div>
+        <div class="wheel-item" style="--i:8"><div class="wheel-item-inner"><img src="g9.jpg" alt="Foto 9" loading="lazy"></div></div>
+        <div class="wheel-item" style="--i:9"><div class="wheel-item-inner"><img src="g10.jpg" alt="Foto 10" loading="lazy"></div></div>
+        <div class="wheel-item" style="--i:10"><div class="wheel-item-inner"><img src="g11.jpg" alt="Foto 11" loading="lazy"></div></div>
+        <div class="wheel-item" style="--i:11"><div class="wheel-item-inner"><img src="g12.jpg" alt="Foto 12" loading="lazy"></div></div>
+        <div class="wheel-item" style="--i:12"><div class="wheel-item-inner"><img src="g13.jpg" alt="Foto 13" loading="lazy"></div></div>
       </div>
       <div class="wheel-hub" aria-hidden="true">
         <svg viewBox="0 0 60 60" fill="none">
