@@ -285,6 +285,41 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .loc-btn:hover{color:var(--paper)}
 .loc-btn:hover::before{transform:translateY(0)}
 
+/* -- Ubicación card única -- */
+.loc-card--single{padding:48px 40px 40px}
+.loc-schedule{
+  display:flex;align-items:center;justify-content:center;
+  gap:0;flex-wrap:wrap;margin:28px 0 36px;
+}
+.loc-sched-item{text-align:center;padding:0 28px}
+.loc-sched-label{font-family:var(--sans);font-size:10px;letter-spacing:.45em;text-transform:uppercase;color:var(--gold-deep);font-weight:500;padding-left:.45em;margin-bottom:8px}
+.loc-sched-time{font-family:var(--display);font-style:italic;font-size:clamp(20px,3vw,28px);color:var(--gold)}
+.loc-sched-sep{width:1px;height:48px;background:var(--hair-gold);flex-shrink:0}
+.loc-map-wrap{
+  width:100%;height:320px;border-radius:2px;overflow:hidden;
+  border:1px solid var(--hair-gold);position:relative;
+}
+.loc-map-wrap iframe{display:block}
+@media(max-width:600px){
+  .loc-sched-sep{display:none}
+  .loc-sched-item{border-top:1px solid var(--hair-gold);width:100%;padding:16px 0}
+  .loc-schedule{flex-direction:column;gap:0}
+  .loc-map-wrap{height:240px}
+}
+
+/* -- Vestimenta duo -- */
+.dress-duo{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;gap:0;max-width:500px;margin:0 auto;
+}
+.dress-person{text-align:center;padding:32px 20px}
+.dress-label{
+  font-family:var(--sans);font-size:10px;letter-spacing:.5em;
+  text-transform:uppercase;color:var(--gold-deep);font-weight:500;
+  padding-left:.5em;margin-top:18px;
+}
+.dress-divider{width:1px;height:120px;background:var(--hair-gold)}
+
 /* ============ COUNTDOWN ============ */
 .countdown{text-align:center;padding:min(14vh,120px) 0}
 .countdown h2{font-size:clamp(30px,4.5vw,50px);margin-bottom:20px}
@@ -478,7 +513,9 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg-wrap">
-      <img class="hero-bg" src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/808b0baf-68a6-4f4d-9ca3-54420b2c3171/1778040162785-0.jpeg" alt="María José & Johnatan">
+      <video class="hero-bg" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+        <source src="hero.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="hero-bg-overlay"></div>
     <div class="hero-frame"></div>
@@ -581,37 +618,39 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
       <div class="eyebrow">Quienes nos acompañan</div>
       <h2>Nuestros <em>padrinos</em></h2>
       <div class="padrinos-grid">
+        <!-- Biblia: libro abierto -->
         <div class="padrino-card">
           <div class="padrino-icon">
-            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-              <path d="M4 19l2-14h12l2 14H4z"/>
-              <path d="M9 7V5a3 3 0 016 0v2"/>
-              <path d="M12 12v4"/>
-              <circle cx="12" cy="11" r="1" fill="currentColor"/>
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 6c0-1.1.9-2 2-2h7a3 3 0 0 1 3 3v13H4a2 2 0 0 1-2-2V6z"/>
+              <path d="M22 6c0-1.1-.9-2-2-2h-7a3 3 0 0 0-3 3v13h10a2 2 0 0 0 2-2V6z"/>
+              <path d="M12 7v13"/>
+              <path d="M5 10h4M5 13h4M15 10h4M15 13h4"/>
             </svg>
           </div>
           <div class="padrino-tipo">Biblia</div>
           <div class="padrino-names">J. Jesús Herrera<br>&amp; Geronima Uribe</div>
         </div>
+        <!-- Lazo: lazo nupcial (infinito) -->
         <div class="padrino-card">
           <div class="padrino-icon">
-            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-              <path d="M7 17C7 17 5 15 5 12s2-4 4-3"/>
-              <path d="M17 17c0 0 2-2 2-5s-2-4-4-3"/>
-              <path d="M12 6v12"/>
-              <path d="M9 9l3-3 3 3"/>
-              <path d="M9 18l3 3 3-3"/>
+            <svg width="42" height="38" viewBox="0 0 42 28" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 14 C17 8, 6 8, 6 14 C6 20, 17 20, 21 14 C25 8, 36 8, 36 14 C36 20, 25 20, 21 14Z"/>
+              <line x1="21" y1="14" x2="21" y2="24"/>
+              <path d="M17 24 Q21 27 25 24"/>
             </svg>
           </div>
           <div class="padrino-tipo">Lazo</div>
           <div class="padrino-names">Octavio Herrera<br>&amp; Mayra Bautista</div>
         </div>
+        <!-- Arras: monedas apiladas -->
         <div class="padrino-card">
           <div class="padrino-icon">
-            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-              <circle cx="12" cy="12" r="8"/>
-              <path d="M12 8v4l3 3"/>
-              <path d="M12 4v1M12 19v1M4 12H3M21 12h-1M6.3 6.3l-.7-.7M18.4 18.4l-.7-.7M6.3 17.7l-.7.7M18.4 5.6l-.7.7"/>
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="6" rx="7" ry="2.5"/>
+              <path d="M5 6v3c0 1.38 3.13 2.5 7 2.5s7-1.12 7-2.5V6"/>
+              <path d="M5 9v3c0 1.38 3.13 2.5 7 2.5s7-1.12 7-2.5V9"/>
+              <path d="M5 12v3c0 1.38 3.13 2.5 7 2.5s7-1.12 7-2.5v-3"/>
             </svg>
           </div>
           <div class="padrino-tipo">Arras</div>
@@ -631,9 +670,10 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
         <h2>Ceremonia <em>&amp;</em> Recepción</h2>
         <div class="locs-sub">Saltillo · Coahuila</div>
       </div>
-      <div class="locs-grid">
-        <article class="loc-card" data-tilt>
+      <div style="max-width:860px;margin:0 auto">
+        <article class="loc-card loc-card--single" data-tilt>
           <span class="washi washi--l"></span>
+          <span class="washi washi--r"></span>
           <svg class="rosette rosette--tl" viewBox="0 0 44 44" fill="none" aria-hidden="true">
             <g stroke="var(--gold)" stroke-width=".8" fill="none">
               <circle cx="22" cy="22" r="6"/><circle cx="22" cy="22" r="14" opacity=".5"/>
@@ -647,31 +687,37 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
               <path d="M22 8 L22 16 M22 28 L22 36 M8 22 L16 22 M28 22 L36 22" opacity=".6"/>
             </g>
           </svg>
-          <div class="loc-type">Recepción</div>
-          <div class="loc-name">Don Artemio<br>Saltillo</div>
-          <div class="loc-time">5:00 pm</div>
-          <div class="loc-addr">Don Artemio<br>Saltillo, Coahuila</div>
-          <a class="loc-btn" href="https://www.google.com/maps/place/Don+Artemio/@25.4948523,-100.9681424,17z" target="_blank" rel="noopener">¿Cómo llegar?</a>
-        </article>
-        <article class="loc-card" data-tilt>
-          <span class="washi washi--r"></span>
-          <svg class="rosette rosette--tl" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-            <g stroke="var(--gold)" stroke-width=".8" fill="none">
-              <circle cx="22" cy="22" r="6"/><circle cx="22" cy="22" r="14" opacity=".5"/>
-              <path d="M22 8 L22 16 M22 28 L22 36 M8 22 L16 22 M28 22 L36 22" opacity=".6"/>
-            </g>
-          </svg>
-          <svg class="rosette rosette--br" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-            <g stroke="var(--gold)" stroke-width=".8" fill="none">
-              <circle cx="22" cy="22" r="6"/><circle cx="22" cy="22" r="14" opacity=".5"/>
-              <path d="M22 8 L22 16 M22 28 L22 36 M8 22 L16 22 M28 22 L36 22" opacity=".6"/>
-            </g>
-          </svg>
-          <div class="loc-type">Ceremonia civil &amp; religiosa</div>
-          <div class="loc-name">Don Artemio<br>Saltillo</div>
-          <div class="loc-time">6:15 pm · 7:00 pm</div>
-          <div class="loc-addr">Ceremonia civil: 6:15 pm<br>Ceremonia religiosa: 7:00 pm<br><em style="font-style:italic;font-size:.9em;opacity:.7">(por confirmar)</em></div>
-          <a class="loc-btn" href="https://www.google.com/maps/place/Don+Artemio/@25.4948523,-100.9681424,17z" target="_blank" rel="noopener">¿Cómo llegar?</a>
+
+          <div class="loc-name" style="font-size:clamp(22px,3vw,32px);margin-bottom:10px">Don Artemio &nbsp;·&nbsp; Saltillo</div>
+
+          <!-- Horarios en fila -->
+          <div class="loc-schedule">
+            <div class="loc-sched-item">
+              <div class="loc-sched-label">Recepción</div>
+              <div class="loc-sched-time">5:00 pm</div>
+            </div>
+            <div class="loc-sched-sep" aria-hidden="true"></div>
+            <div class="loc-sched-item">
+              <div class="loc-sched-label">Ceremonia civil</div>
+              <div class="loc-sched-time">6:15 pm</div>
+            </div>
+            <div class="loc-sched-sep" aria-hidden="true"></div>
+            <div class="loc-sched-item">
+              <div class="loc-sched-label">Ceremonia religiosa</div>
+              <div class="loc-sched-time">7:00 pm</div>
+            </div>
+          </div>
+
+          <!-- Mapa embebido -->
+          <div class="loc-map-wrap">
+            <iframe
+              src="https://maps.google.com/maps?q=25.4948523,-100.9655675&hl=es&z=17&output=embed"
+              width="100%" height="100%" style="border:0" allowfullscreen loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación Don Artemio, Saltillo"></iframe>
+          </div>
+
+          <a class="loc-btn" href="https://www.google.com/maps/place/Don+Artemio/@25.4948523,-100.9655675,17z" target="_blank" rel="noopener" style="margin-top:32px">¿Cómo llegar?</a>
         </article>
       </div>
     </div>
@@ -756,17 +802,56 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
   <section class="section-bg dress">
     <div class="container">
       <div class="eyebrow">Código de vestimenta</div>
-      <h2>Formal</h2>
-      <div class="dress-sub">elegancia clásica</div>
-      <div class="dress-note">Mujeres · vestido formal &nbsp;·&nbsp; Caballeros · traje oscuro</div>
-      <div class="dress-avoid">Evitar: blanco (#FFFFFF) y rosa pálido (#ffebe7)</div>
-      <div class="dress-swatches">
-        <div class="swatch"><div class="swatch-c" style="background:linear-gradient(135deg,#2f3f59,#1e2d42)"></div><div class="swatch-n">Marino</div></div>
-        <div class="swatch"><div class="swatch-c" style="background:linear-gradient(135deg,#c1a78e,#a89070)"></div><div class="swatch-n">Arena dorada</div></div>
-        <div class="swatch"><div class="swatch-c" style="background:linear-gradient(135deg,#7f553c,#5c3a25)"></div><div class="swatch-n">Cobre</div></div>
-        <div class="swatch"><div class="swatch-c" style="background:linear-gradient(135deg,#f4f3ef,#e0ddd7)"></div><div class="swatch-n">Marfil</div></div>
-        <div class="swatch"><div class="swatch-c" style="background:linear-gradient(135deg,#4a3728,#2f2318)"></div><div class="swatch-n">Café oscuro</div></div>
+      <h2 style="margin-bottom:56px">Formal</h2>
+      <div class="dress-duo">
+        <!-- Caballero -->
+        <div class="dress-person">
+          <svg width="64" height="80" viewBox="0 0 64 80" fill="none" stroke="var(--gold-deep)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <!-- cabeza -->
+            <circle cx="32" cy="12" r="8"/>
+            <!-- cuerpo + traje -->
+            <path d="M20 28 Q22 22 32 22 Q42 22 44 28 L46 60 H18 Z"/>
+            <!-- solapa izq -->
+            <path d="M32 22 L28 30 L32 34"/>
+            <!-- solapa der -->
+            <path d="M32 22 L36 30 L32 34"/>
+            <!-- corbata -->
+            <path d="M32 34 L30 46 L32 50 L34 46 Z"/>
+            <!-- botones -->
+            <circle cx="32" cy="38" r="1" fill="var(--gold-deep)"/>
+            <!-- brazos -->
+            <path d="M20 28 L14 50"/>
+            <path d="M44 28 L50 50"/>
+            <!-- piernas -->
+            <path d="M24 60 L22 78"/>
+            <path d="M40 60 L42 78"/>
+          </svg>
+          <div class="dress-label">Caballero</div>
+        </div>
+
+        <!-- Separador -->
+        <div class="dress-divider" aria-hidden="true"></div>
+
+        <!-- Dama -->
+        <div class="dress-person">
+          <svg width="64" height="80" viewBox="0 0 64 80" fill="none" stroke="var(--gold-deep)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <!-- cabeza -->
+            <circle cx="32" cy="12" r="8"/>
+            <!-- pelo -->
+            <path d="M24 10 Q24 4 32 4 Q40 4 40 10"/>
+            <!-- cuerpo + vestido -->
+            <path d="M22 24 Q24 20 32 20 Q40 20 42 24 L38 42 Q46 48 48 60 Q48 64 32 64 Q16 64 16 60 Q18 48 26 42 Z"/>
+            <!-- brazos -->
+            <path d="M22 28 L14 44"/>
+            <path d="M42 28 L50 44"/>
+            <!-- detalle cintura -->
+            <path d="M24 38 Q32 40 40 38"/>
+          </svg>
+          <div class="dress-label">Dama</div>
+        </div>
       </div>
+
+      <div class="dress-avoid" style="margin-top:40px">Por favor evitar blanco y rosa pálido</div>
     </div>
   </section>
 
@@ -822,54 +907,7 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
     </div>
   </section>
 
-  <div class="seam" style="--from:var(--paper);--to:var(--surface)" aria-hidden="true"></div>
-
-  <!-- GIFTS -->
-  <section class="section-surface gifts">
-    <div class="container">
-      <div class="gifts-head">
-        <div class="eyebrow">Tu presencia es nuestro regalo</div>
-        <h2>Mesa <em>de</em> regalos</h2>
-        <p class="gifts-sub">Si deseas obsequiarnos algo, hemos preparado estas opciones con mucho cariño</p>
-      </div>
-      <div class="gifts-grid">
-        <article class="gift-card">
-          <div class="gift-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
-              <path d="M3 6h2l2 11h11l2-8H7"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/>
-            </svg>
-          </div>
-          <div class="gift-name">Amazon</div>
-          <div class="gift-desc">Lista de regalos en línea<br>Envío directo a los novios</div>
-          <a class="gift-btn" href="https://www.amazon.com.mx/wedding/registry" target="_blank" rel="noopener">Ver lista</a>
-        </article>
-        <article class="gift-card">
-          <div class="gift-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
-              <path d="M5 8h14l-1.5 12h-11L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>
-            </svg>
-          </div>
-          <div class="gift-name">Liverpool</div>
-          <div class="gift-desc">Mesa de regalos<br>Por confirmar</div>
-          <a class="gift-btn" href="https://mesaderegalos.liverpool.com.mx" target="_blank" rel="noopener">Ver mesa</a>
-        </article>
-        <article class="gift-card">
-          <div class="gift-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
-              <rect x="3" y="6" width="18" height="13" rx="1.5"/><path d="M3 10h18"/><path d="M7 15h4"/>
-            </svg>
-          </div>
-          <div class="gift-name">Transferencia</div>
-          <div class="gift-desc">
-            <span class="bank-line">CLABE: <span class="clabe" id="clabe-val">Por confirmar</span></span>
-          </div>
-          <button class="gift-btn copy-clabe" data-clabe="porconfirmar" type="button">Copiar CLABE</button>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <div class="seam" style="--from:var(--surface);--to:var(--bg)" aria-hidden="true"></div>
+  <div class="seam" style="--from:var(--paper);--to:var(--bg)" aria-hidden="true"></div>
 
   <!-- ALBUM QR -->
   <section class="section-bg album">
